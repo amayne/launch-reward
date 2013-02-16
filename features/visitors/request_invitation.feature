@@ -20,7 +20,7 @@ Feature: Request Invitation
     Then I should see a message "Thank You"
     And my email address should be stored in the database
     And my account should be unconfirmed
-    And I should receive an email with subject "Request Received"
+    #And I should receive an email with subject "Request Received"             #disabled for MailChimp
 
   Scenario: User signs up with invalid email
     When I request an invitation with an invalid email
