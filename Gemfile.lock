@@ -163,6 +163,11 @@ GEM
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+>>>>>>> ab-test
 =======
     rest-client (1.6.7)
       mime-types (>= 1.16)

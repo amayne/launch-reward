@@ -36,6 +36,10 @@ gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.10.0"
 gem "split", :require => "split/dashboard"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+gem "heroku"
+>>>>>>> ab-test
 =======
 gem "heroku"
 >>>>>>> ab-test
