@@ -25,3 +25,11 @@ Feature: Request Invitation
   Scenario: User signs up with invalid email
     When I request an invitation with an invalid email
     Then I should see an invalid email message
+
+  Scenario: User sees Facebook "Share" button
+    When I request an invitation with valid user data
+    Then I should see a button "Like"
+
+  Scenario: User sees Twitter "Share" button
+    When I request an invitation with valid user data
+    Then I should see a button "Tweet"

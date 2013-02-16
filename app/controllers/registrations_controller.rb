@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+
   # override #create to respond to AJAX with a partial
   def create
     build_resource
@@ -29,6 +30,5 @@ class RegistrationsController < Devise::RegistrationsController
     # the page new users will see after sign up (after launch, when no invitation is needed)
     redirect_to root_path
   end
-
 
 end

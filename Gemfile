@@ -29,3 +29,4 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "hominid"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.10.0"
+gem "vanity"
