@@ -1,0 +1,11 @@
+my_first_experiment:
+  alternatives:
+    - a
+    - b
+my_second_experiment:
+  alternatives:
+    - name: a
+      percent: 67
+    - name: b
+      percent: 33
+  resettable: false
