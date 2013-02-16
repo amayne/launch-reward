@@ -1,4 +1,5 @@
 LaunchReward::Application.routes.draw do
+  mount Split::Dashboard, :at => 'split'
   authenticated :user do
     root :to => 'home#index'
   end
