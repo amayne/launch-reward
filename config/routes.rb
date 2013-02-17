@@ -12,4 +12,5 @@ LaunchReward::Application.routes.draw do
   resources :users do
     get 'invite', :on => :member
   end
+  match '/:id' => 'referrals#index'
 end

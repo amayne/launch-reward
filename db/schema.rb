@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216074403) do
+ActiveRecord::Schema.define(:version => 20130217082621) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -48,12 +48,24 @@ ActiveRecord::Schema.define(:version => 20130216074403) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "referral_token"
+    t.integer  "link_referral_count",                  :default => 1
+    t.integer  "fb_referral_count",                    :default => 1
+    t.integer  "twitter_referral_count",               :default => 1
+    t.integer  "email_referral_count",                 :default => 1
+    t.boolean  "fb_like_page"
+    t.boolean  "fb_post_to_wall"
+    t.boolean  "twitter_follow"
+    t.boolean  "twitter_tweet"
+    t.boolean  "email_referral_sent"
+    t.integer  "referred_by_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
+  add_index "users", ["referral_token"], :name => "index_users_on_referral_token", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "users_roles", :id => false, :force => true do |t|

@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :opt_in, :confirmed
 
+  has_one :referred_by, :class_name => User
+
   # enable for regular SMTP mailer
   #after_create :send_welcome_email
 
+  before_create :create_referral_token
   after_create :add_user_to_mailchimp unless Rails.env.test?
   before_destroy :remove_user_from_mailchimp unless Rails.env.test?
 
@@ -77,6 +80,21 @@ class User < ActiveRecord::Base
   def send_welcome_email
     unless self.email.include?('@example.com')  && Rails.env != 'test' # excluding @example.com, to avoid resending emails when db is reset
       UserMailer.welcome_email(self).deliver
+    end
+  end
+
+  def create_referral_token
+    self.referral_token=generate_token
+  end
+
+  def generate_token count = 0
+    n_chars = (count % 10) + 5
+    token = rand(36**n_chars).to_s(36)
+    user = User.find_by_referral_token(token)
+    if user.nil?
+      return token
+    else
+      return generate_token(count + 1)
     end
   end
 end
