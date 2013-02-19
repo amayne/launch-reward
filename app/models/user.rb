@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :opt_in, :confirmed
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :opt_in, :confirmed, :referred_by
 
-  has_one :referred_by, :class_name => User
+  belongs_to :referred_by, :class_name => User, :foreign_key => :referred_by_id
 
   # enable for regular SMTP mailer
   #after_create :send_welcome_email

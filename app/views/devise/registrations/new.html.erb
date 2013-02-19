@@ -7,6 +7,7 @@
       <div class="modal-body">
         <%= f.error_notification %>
         <%= f.input :email, :placeholder => 'user@example.com' %>
+
       </div>
       <div class="modal-footer">
         <%= f.submit "Request Invitation", :class => "btn btn-primary", :id => 'invitation_button' %>
@@ -16,6 +17,7 @@
 </div>
 <div id="romance-copy" style="text-align: center; margin-top: 80px">
   <h2>Want in?</h2>
+  <%=  @referral_user_id %>
 </div>
 <div id="call-to-action" style="text-align: center; margin-top: 80px">
   <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Request invite</a>
